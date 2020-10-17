@@ -8,14 +8,16 @@ function showPassword(password){
 generateBtn.addEventListener("click", writePassword);
 
 //Arrays of character types
-var letters=["a", "b", "c", "d", "e","f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+var lowerLetters=["a", "b", "c", "d", "e","f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var upperLetters=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var otherChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "=", ",", ".", "/", "<", ">", "?"]
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 //base Array containing al upper and lowercase letters
-varpassArray = letters
+var passValues = [lowerletters]
+var result= " "
 
 //function runs as soon as user hits button
-function generatePassword() {
+function generatePassword(){
 //once Press button, prompt user for password length and validate
   var passwordLength = prompt ("Please choose your password length between 8-128 characters long")
   console.log(passwordLength)}
@@ -29,25 +31,23 @@ function generatePassword() {
   var addUpper =  confirm("Would you like to include uppercase letters in your password?")
   var addNum =  confirm("Would you like to include numbers in your password?")
   var addspecialChar =  confirm("Would you like to include special characters in your password?")
-  var addLower =  confirm("Would you like to include lowercase letters in your password?")
   if(addUpper === false && addLower === false && addNum === false && addspecialChar === false){
-    alert("You have not answer Yes to any options.  Please restart at step 2.")
+    alert("You have not answer Yes to any options.  Please restart at step 1.")
     return;
   }
 
-  var charArray = [];
-  var charResult = []
-    if (addUpper === true){
-      charArray = charArray.concat(Uppercaseletters)
-    }
-    if (addLower === true){
-      charArray = charArray.concat(lowercaseletters)
-    }
-    if (addNum === true){
-      charArray = charArray.concat(NumberArray)
-    }
-    if (addSpecialChar === true){
-      charArray = charArray.concat(specialChar)
-    }
+  //add numbers and/or special characters into Large Password Array if selected.
 
+  if (addUpper) {
+    passValues.push(upperLetters)
+  }
+  if (addLower) {
+    passValues.push(lowerLetters)
+  }
+  if (addNum) {
+    passValues.push(number)
+  }
+  if (addspecialChar) {
+    passValues.push(specialChar)
+  }
     return charResult.join("")
