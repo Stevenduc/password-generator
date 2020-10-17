@@ -26,9 +26,6 @@ function generatePassword(){
   passwordLength = prompt("PasswordLength must be between 8-128 characters long");
   }
 
-signUpButton.addEventListener("click". functions(Event) {
-  Event.preventDefault();
-}
   //prompt for character types: numeric, and/or special characters
   var addLower =  confirm("Would you like to include lowercase letters in your password? Hit cancel if No")
   var addUpper =  confirm("Would you like to include uppercase letters in your password? Hit cancel if No")
