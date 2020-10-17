@@ -26,7 +26,28 @@ function generatePassword() {
 
   //prompt for character types: numeric, and/or special characters
   var addLower =  confirm("Would you like to include lowercase letters in your password?")
-  var addLower =  confirm("Would you like to include uppercase letters in your password?")
-  var addLower =  confirm("Would you like to include numbers in your password?")
-  var addLower =  confirm("Would you like to include special characters in your password?")
+  var addUpper =  confirm("Would you like to include uppercase letters in your password?")
+  var addNum =  confirm("Would you like to include numbers in your password?")
+  var addspecialChar =  confirm("Would you like to include special characters in your password?")
   var addLower =  confirm("Would you like to include lowercase letters in your password?")
+  if(addUpper === false && addLower === false && addNum === false && addspecialChar === false){
+    alert("You have not answer Yes to any options.  Please restart at step 2.")
+    return;
+  }
+
+  var charArray = [];
+  var charResult = []
+    if (addUpper === true){
+      charArray = charArray.concat(Uppercaseletters)
+    }
+    if (addLower === true){
+      charArray = charArray.concat(lowercaseletters)
+    }
+    if (addNum === true){
+      charArray = charArray.concat(NumberArray)
+    }
+    if (addSpecialChar === true){
+      charArray = charArray.concat(specialChar)
+    }
+
+    return charResult.join("")
