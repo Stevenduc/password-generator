@@ -4,19 +4,29 @@ document.getElementById("generate").addEventListener("click",function(){
 function showPassword(password){
   document.getElementById("password").value = password
 }
-/*
-1. prompt user for password length and validate
-  - use the prompt function
-2. prompt user if they wanted lowercase character
-  - use the confirm function for #2-5
-3. prompt user if they wanted uppercase character
-4. prompt user if they want special character
-5. promp user if they want numbers
-6. if they do not answer Yes for any options restart at step 2
-  - use a while loop to restart at step 2 until they selected at least one option
-7. base on their answer above, create pool of characters they want their password to be created from
-8. generate a password by randomly selecting x character
-  - use a for loop 
-  - use math.random to generate a random index
-  - add the character at the random index of the character pool to the password.
-*/
+// Add event listerner to generate button
+generateBtn.addEventListener("click", writePassword);
+
+//Arrays of character types
+var letters=["a", "b", "c", "d", "e","f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+var otherChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "=", ",", ".", "/", "<", ">", "?"]
+var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+//base Array containing al upper and lowercase letters
+varpassArray = letters
+
+//function runs as soon as user hits button
+function generatePassword() {
+//once Press button, prompt user for password length and validate
+  var passwordLength = prompt ("Please choose your password length between 8-128 characters long")
+  console.log(passwordLength)}
+//set range of acceptable password length for responses.
+  if (passwordLength < 8 || passwordLength > 128) {
+  passwordLength = prompt("PasswordLength must be between 8-128 characters long");
+  }
+
+  //prompt for character types: numeric, and/or special characters
+  var addLower =  confirm("Would you like to include lowercase letters in your password?")
+  var addLower =  confirm("Would you like to include uppercase letters in your password?")
+  var addLower =  confirm("Would you like to include numbers in your password?")
+  var addLower =  confirm("Would you like to include special characters in your password?")
+  var addLower =  confirm("Would you like to include lowercase letters in your password?")
