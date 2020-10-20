@@ -1,12 +1,9 @@
-var generateBtn = document.querySelector("#generate");
+document.getElementById("generate").addEventListener("click",function(){
+  showPassword("abc")
+ })
+ function showPassword(password){
+   document.getElementById("password").value = password
 
-// Write password to the #password input
-functionwritePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-  
 }
 
 // Add event listerner to generate button
